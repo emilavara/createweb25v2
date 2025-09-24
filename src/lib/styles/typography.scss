@@ -1,0 +1,114 @@
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+}
+
+h1, .h1 {
+    font-size: var(--h1-font-size);
+    font-weight: 900;
+    text-transform: uppercase;
+
+    @media (max-width: 768px) {
+        font-size: var(--h1-font-size-xs);
+    }
+}
+
+h2, .h2 {
+    font-size: var(--h2-font-size);
+    font-weight: 900;
+    text-transform: uppercase;
+
+    @media (max-width: 768px) {
+        font-size: var(--h2-font-size-xs);
+    }
+}
+
+h3, .h3 {
+    font-size: var(--h3-font-size);
+    font-weight: 900;
+    text-transform: uppercase;
+
+    @media (max-width: 768px) {
+        font-size: var(--h3-font-size-xs);
+    }
+}
+
+h4, .h4 {
+    font-size: var(--h4-font-size);
+    font-weight: 900;
+    text-transform: uppercase;
+
+    @media (max-width: 768px) {
+        font-size: var(--h4-font-size-xs);
+    }
+}
+
+h5, .h5 {
+    font-size: var(--subheading-font-size);
+    text-transform: uppercase;
+    color: var(--accent-color);
+    font-family: 'JetBrains Mono';
+}
+
+.cw-text-transform-none {
+    text-transform: none;
+}
+
+.cw-text-semibold {
+    font-weight: 600;
+}
+
+.subheading {
+    font-size: var(--subheading-font-size);
+    text-transform: uppercase;
+    color: var(--body-text-color);
+    font-family: 'JetBrains Mono';
+
+    &.white {
+        color: #ffffff;
+    }
+}
+
+p {
+    font-size: var(--p-font-size);
+    color: var(--body-text-color);
+    line-height: 1.5625;
+
+    @media (max-width: 768px) {
+        font-size: var(--p-font-size-xs);
+    }
+
+    &.bold {
+        font-weight: 600;
+    }
+
+    &.special {
+        color: var(--bw);
+        font-weight: 900;
+    }
+}
+
+a {
+    &.web-link {
+        text-decoration: underline;
+        text-decoration-color: transparent;
+        cursor: pointer;
+        color: var(--accent-color);
+        transition: text-decoration-color 0.1s ease;
+
+        &:hover {
+            text-decoration-color: var(--accent-color);
+        }
+
+        &.no-accent {
+            color: inherit;
+
+            &:hover {
+                color: var(--accent-color);
+            }
+        }
+    }
+}
+
+.text-white {
+    color: white;
+}

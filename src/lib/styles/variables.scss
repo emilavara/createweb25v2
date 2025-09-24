@@ -1,0 +1,43 @@
+:root {
+    interpolate-size: allow-keywords;
+    overscroll-behavior: none;
+    
+    //--------------TYPO-----------------
+    --h1-font-size: 5.125rem;
+    --h2-font-size: 2.625rem;
+    --h3-font-size: 2rem;
+    --h4-font-size: 1.5rem;
+
+    --h1-font-size-xs: 82px;
+    --h2-font-size-xs: 32px;
+    --h3-font-size-xs: 24px;
+    --h4-font-size-xs: 24px;
+
+    --subheading-font-size: 0.6875rem;
+
+    --p-font-size: 1rem;
+    --p-font-size-xs: 14px;
+
+    --button-font-size: 0.875rem;
+    //-----------------------------------
+
+    //--------------BG COLORS------------
+    --bg-color: light-dark(#eeeeee, #070707);
+    --secondary-bg: light-dark(#e8e8e8, #101010);
+    --tertiary-bg: light-dark(#e0e0e0, #141414);
+    //-----------------------------------
+
+    --accent-color: #FF8C00;
+
+    --button-secondary-bg: light-dark(#e3e3e3, #202020);
+
+    --border-color: light-dark(#cfcfcf, #303030);
+    --border-color-transparent: rgba(85, 85, 85, 0.43);
+    --dashed-border-image: repeating-linear-gradient(90deg, var(--border-color) 0, var(--border-color) 0.25rem, transparent 0.25rem, transparent 0.5rem) 1;
+
+    --bw: light-dark(#000000, #ffffff);
+
+    --section-width: 81.125rem;
+
+    --body-text-color: light-dark(#000000, #909090);
+}
