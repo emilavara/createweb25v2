@@ -1,0 +1,9 @@
+section {
+    max-width: 1298px;
+    margin: auto;
+}
+
+.monochrome-striped-background {
+    background-image: linear-gradient(45deg, var(--bg-color) 25%, var(--monochrome-stripe-foreground-color) 25%, var(--monochrome-stripe-foreground-color) 50%, var(--bg-color) 50%, var(--bg-color) 75%, var(--monochrome-stripe-foreground-color) 75%, var(--monochrome-stripe-foreground-color) 100%);
+    background-size: 4.5px 4.5px;
+}

@@ -1,5 +1,11 @@
 <script lang="ts">
+    //component imports
+    import Header from '$components/Header.svelte'
+    import Footer from '$components/Footer.svelte'
 
+    //section imports
 </script>
 
-<h1 class="h2">createweb svelte rewrite</h1>
+<Header/>
+<section style="height: 200vh"></section>
+<Footer/>

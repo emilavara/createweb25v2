@@ -1,7 +1,7 @@
 :root {
     interpolate-size: allow-keywords;
     overscroll-behavior: none;
-    
+
     //--------------TYPO-----------------
     --h1-font-size: 5.125rem;
     --h2-font-size: 2.625rem;
@@ -40,4 +40,6 @@
     --section-width: 81.125rem;
 
     --body-text-color: light-dark(#000000, #909090);
+
+    --monochrome-stripe-foreground-color: light-dark(#e6e6e6, #191919)
 }
