@@ -1,4 +1,16 @@
+@use '$lib/styles/variables.scss' as *;
+@use '$lib/styles/layout.scss' as *;
+@use '$lib/styles/cw_grid.scss' as *;
+@use '$lib/styles/fonts.scss' as *;
+@use '$lib/styles/typography.scss' as *;
+
+html {
+    color-scheme: dark;
+}
+
 body {
     margin: 0;
     padding: 0;
+    font-family: 'Inter Display';
+    background-color: var(--bg-color);
 }
