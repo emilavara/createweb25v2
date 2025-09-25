@@ -1,22 +1,3 @@
-<!--
-
-kolumnkomponent för "emils fett coola grid system™ 2022"
-
-användning:
-- `span`: ange hur många kolumner komponenten ska spänna över. Tar antingen ett nummer (för lg) eller ett objekt med brytpunkter `{ xs, lg }`.
-- `start` / `end`: ange exakt vilken kolumn komponenten ska börja och sluta på (kan också vara responsivt).
-
-exempel:
-<Column span={6}>Halv bredd på stora skärmar, default 12 på xs</Column>
-<Column span={{ xs: 12, lg: 4 }}>Responsiv kolumn</Column>
-<Column start={{ xs: 1, lg: 3 }} end={{ xs: 13, lg: 9 }}>Placera med gridlines</Column>
-
-tänk på:
-- om ingen `xs`-span anges, används automatiskt 12 (full bredd på mobil).
-- blanda inte `span` med `start`/`end` – välj ett av sätten.
-
--->
-
 <script lang="ts">
     type BP = 'xs' | 'lg';
     type ResponsiveValue = number | Partial<Record<BP, number>>;
@@ -61,3 +42,22 @@ tänk på:
 <div class={`${columnClasses()} ${className ?? ''}`}>
     {@render children?.()}
 </div>
+
+<!--
+
+kolumnkomponent för "emils fett coola grid system™ 2022"
+
+användning:
+- `span`: ange hur många kolumner komponenten ska spänna över. Tar antingen ett nummer (för lg) eller ett objekt med brytpunkter `{ xs, lg }`.
+- `start` / `end`: ange exakt vilken kolumn komponenten ska börja och sluta på (kan också vara responsivt).
+
+exempel:
+<Column span={6}>Halv bredd på stora skärmar, default 12 på xs</Column>
+<Column span={{ xs: 12, lg: 4 }}>Responsiv kolumn</Column>
+<Column start={{ xs: 1, lg: 3 }} end={{ xs: 13, lg: 9 }}>Placera med gridlines</Column>
+
+tänk på:
+- om ingen `xs`-span anges, används automatiskt 12 (full bredd på mobil).
+- blanda inte `span` med `start`/`end` – välj ett av sätten.
+
+-->
