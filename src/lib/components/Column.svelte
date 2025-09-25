@@ -8,9 +8,10 @@
         end?: ResponsiveValue;
         class?: string;
         children?: any;
+        style?: string;
     }
 
-    let { span, start, end, class: className, children }: Props = $props();
+    let { span, start, end, class: className, children, style }: Props = $props();
 
     function normalizeSpan(value?: ResponsiveValue): ResponsiveValue | undefined {
         if (value == null) return undefined;
@@ -39,7 +40,7 @@
     });
 </script>
 
-<div class={`${columnClasses()} ${className ?? ''}`}>
+<div {style} class={`${columnClasses()} ${className ?? ''}`}>
     {@render children?.()}
 </div>
 
