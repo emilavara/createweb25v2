@@ -1,11 +1,14 @@
+<!-- Hem -->
 <script lang="ts">
-    //component imports
     import Header from '$components/Header.svelte'
+    import Section from '$components/Section.svelte'
+    import Column from '$components/Column.svelte'
     import Footer from '$components/Footer.svelte'
-
-    //section imports
 </script>
 
 <Header/>
-<section style="height: 200vh"></section>
+<Section>
+    <Column span={8}>
+    </Column>
+</Section>
 <Footer/>

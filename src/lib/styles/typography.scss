@@ -87,32 +87,76 @@ p {
     }
 }
 
-a {
-    &.web-link {
-        text-decoration: underline;
-        text-decoration-color: transparent;
-        cursor: pointer;
-        color: var(--accent-color);
-        transition: text-decoration-color 0.1s ease;
-
-        &:hover {
-            text-decoration-color: var(--accent-color);
-        }
-
-        &.no-accent {
-            color: inherit;
-
-            &:hover {
-                color: var(--accent-color);
-            }
-        }
-    }
-}
-
 .text-white {
     color: white;
 }
 
 .text-accent {
     color: var(--accent-color);
+}
+
+a {
+    all: unset;
+
+    &.link-navigation {
+
+    }
+
+    &.link-body {
+        font-size: inherit;
+        font-family: inherit;
+        cursor: pointer;
+        transition: color 0.1s ease;
+        position: relative;
+
+        &::after {
+            height: 1px;
+            width: 100%;
+            content: "";
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            background-color: var(--body-text-color);
+            transition: width 0.2s ease, background-color 0.1s ease;
+            pointer-events: none;
+        }
+
+        &:hover {
+            color: var(--accent-color);
+
+            &::after {
+                width: 0%;
+                background-color: var(--accent-color);
+            }
+        }
+    }
+
+    &.link-monospace {
+        font-size: inherit;
+        font-family: inherit;
+        cursor: pointer;
+        transition: color 0.1s ease;
+        position: relative;
+
+        &::after {
+            height: 0.5px;
+            width: 0;
+            content: "";
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            background-color: var(--body-text-color);
+            transition: width 0.2s ease;
+            pointer-events: none;
+        }
+
+        &:hover {
+            color: var(--accent-color);
+
+            &::after {
+                width: 100%;
+                background-color: var(--accent-color);
+            }
+        }
+    }
 }

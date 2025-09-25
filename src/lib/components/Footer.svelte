@@ -9,8 +9,8 @@
         </div>
         <div class="bottom-container">
             <p class="subheading">&copy; Createweb 2025</p>
-            <p class="subheading email">hej@createweb.se</p>
-            <p class="subheading">Integritetspolicy</p>
+            <p class="subheading email"><a class="link-monospace" href="mailto:hej@createweb.se">hej@createweb.se</a></p>
+            <p class="subheading"><a class="link-monospace" href="/integritetspolicy">Integritetspolicy</a></p>
         </div>
     </div>
 </footer>

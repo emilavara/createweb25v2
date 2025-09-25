@@ -5,7 +5,25 @@
         <div class="logo-container">
             <img src="/images/cw_logo.svg"/>
         </div>
-        <nav></nav>
+        <nav>
+            <ul>
+                <li>
+                    <a href="" class="link-navigation active">Hem</a>
+                </li>
+                <li>
+                    <div class="link-navigation dropdown">Tjänster</div>
+                </li>
+                <li>
+                    <a href="" class="link-navigation">Case</a>
+                </li>
+                <li>
+                    <a href="" class="link-navigation">Om oss</a>
+                </li>
+                <li>
+                    <a href="" class="link-navigation">Kontakt</a>
+                </li>
+            </ul>
+        </nav>
         <div class="button-container">
             <a class="cw-button--primary small" href="">Begär en offert</a>
         </div>
@@ -56,6 +74,24 @@
 
             nav {
                 justify-self: center;
+
+                ul {
+                    list-style: none;
+                    display: flex;
+                    gap: 1.5rem;
+
+                    li {
+                        font-weight: 600;
+
+                        a, div {
+                            color: #5d5d5d;
+
+                            &.active {
+                                color: white;
+                            }
+                        }
+                    }
+                }
 
                 @media (max-width: 768px) {
                     display: none;
