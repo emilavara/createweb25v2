@@ -7,6 +7,13 @@ h1, .h1 {
     font-weight: 900;
     text-transform: uppercase;
 
+    &.lowercase {
+        font-weight: 700;
+        text-transform: none;
+        font-size: 4.35rem;
+        letter-spacing: -0.02em;
+    }
+
     @media (max-width: 768px) {
         font-size: var(--h1-font-size-xs);
     }
@@ -84,6 +91,11 @@ p {
     &.special {
         color: var(--bw);
         font-weight: 900;
+    }
+
+    &.hero {
+        font-size: 1.125rem;
+        color: var(--bw);
     }
 }
 
