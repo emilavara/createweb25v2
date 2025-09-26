@@ -7,3 +7,104 @@ section {
     background-image: linear-gradient(45deg, transparent 25%, var(--monochrome-stripe-foreground-color) 25%, var(--monochrome-stripe-foreground-color) 50%, transparent 50%, transparent 75%, var(--monochrome-stripe-foreground-color) 75%, var(--monochrome-stripe-foreground-color) 100%);
     background-size: 4.5px 4.5px;
 }
+
+header {
+    height: 4rem;
+    background-color: var(--bg-color);
+    border-bottom: 1px solid var(--border-color);
+    display: grid;
+    grid-template-columns: 1fr 81.125rem 1fr;
+    grid-template-areas: "gutter-1 header gutter-2";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transition: transform 0.4s ease;
+
+    &.scrolled {
+        transform: translateY(-4rem);
+    }
+
+    @media (max-width: 768px) {
+        border-top: 1px solid var(--border-color);
+        grid-template-columns: 1fr calc(100% - 4rem) 1fr;
+    }
+
+    .header-container {
+        grid-area: header;
+        border-left: 1px solid var(--border-color);
+        border-right: 1px solid var(--border-color);
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        align-items: center;
+
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr 64px;
+        }
+
+        .logo-container {
+            padding-left: 1rem;
+            justify-self: flex-start;
+
+            img {
+                max-width: 10rem;
+            }
+
+            @media (max-width: 768px) {
+                padding-left: 1rem;
+            }
+        }
+
+        nav {
+            justify-self: center;
+
+            ul {
+                list-style: none;
+                display: flex;
+                gap: 1.5rem;
+
+                li {
+                    font-weight: 600;
+                    cursor: pointer;
+                    user-select: none;
+
+                    a, div {
+                        color: #5d5d5d;
+
+                        &.active {
+                            color: white;
+                        }
+
+                        &:hover {
+                            color: white;
+                        }
+                    }
+                }
+            }
+
+            @media (max-width: 768px) {
+                display: none;
+            }
+        }
+
+        .button-container {
+            padding-right: 1rem;
+            justify-self: flex-end;
+
+            @media (max-width: 768px) {
+                display: none;
+            }
+        }
+
+        .hamburger-container {
+            display: none;
+            height: 100%;
+            border-left: 1px solid var(--border-color);
+
+            @media (max-width: 768px) {
+                display: grid;
+                place-items: center;
+            }
+        }
+    }
+}

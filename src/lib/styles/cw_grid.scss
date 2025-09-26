@@ -13,6 +13,10 @@
 
 :root {
     --section-width: 81.125rem;
+
+    @media (max-width: 768px) {
+        --section-width: calc(100% - 4rem);
+    }
 }
 
 .cw-grid {

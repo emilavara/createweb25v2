@@ -1,26 +1,68 @@
-<script lang="ts"></script>
+<script lang="ts">
+    import { onMount } from "svelte";
+    import { page } from "$app/stores";
+    import { get } from "svelte/store";
 
-<header>
+    let header: HTMLElement;
+
+    function isActive(href: string): boolean {
+        const path = get(page).url.pathname;
+
+        const normalize = (s: string) => {
+            // remove trailing slashes; keep "/" as root
+            const n = s.replace(/\/+$/, "");
+            return n === "" ? "/" : n;
+        };
+
+        const current = normalize(path);
+        const target = normalize(href);
+
+        if (target === "/") return current === "/";
+
+        // Active if exact match OR inside a subtree (e.g., /case, /case/foo)
+        return current === target || current.startsWith(target + "/");
+    }
+
+    onMount(() => {
+        let prevScrollpos = 0;
+
+        function handleHeaderScroll() {
+            const currentScrollPos = window.scrollY;
+
+            if (prevScrollpos <= currentScrollPos ){
+                header.classList.add("scrolled");
+            } else {
+                header.classList.remove('scrolled');
+            }
+
+            prevScrollpos = currentScrollPos;
+        }
+
+        window.addEventListener('scroll', handleHeaderScroll)
+    })
+</script>
+
+<header bind:this={header}>
     <div class="header-container">
         <div class="logo-container">
-            <img src="/images/cw_logo.svg"/>
+            <img src="/images/cw_logo.svg" alt="createweb logotyp"/>
         </div>
         <nav>
             <ul>
                 <li>
-                    <a href="" class="link-navigation active">Hem</a>
+                    <a href="/" class:active={isActive("/")} class="link-navigation">Hem</a>
                 </li>
                 <li>
-                    <div class="link-navigation dropdown">Tjänster</div>
+                    <a href="/case" class:active={isActive("/case")} class="link-navigation">Case</a>
                 </li>
                 <li>
-                    <a href="" class="link-navigation">Case</a>
+                    <div class:active={isActive("/tjanster")} class="link-navigation dropdown">Tjänster</div>
                 </li>
                 <li>
-                    <a href="" class="link-navigation">Om oss</a>
+                    <a href="/om-oss" class:active={isActive("/om-oss")} class="link-navigation">Om oss</a>
                 </li>
                 <li>
-                    <a href="" class="link-navigation">Kontakt</a>
+                    <a href="/kontakt" class:active={isActive("/kontakt")} class="link-navigation">Kontakt</a>
                 </li>
             </ul>
         </nav>
@@ -32,91 +74,3 @@
         </div>
     </div>
 </header>
-
-<style lang="scss">
-    header {
-        height: 4rem;
-        background-color: var(--bg-color);
-        border-bottom: 1px solid var(--border-color);
-        display: grid;
-        grid-template-columns: 1fr 81.125rem 1fr;
-        grid-template-areas: "gutter-1 header gutter-2";
-
-        @media (max-width: 768px) {
-            border-top: 1px solid var(--border-color);
-            grid-template-columns: 1fr calc(100% - 4rem) 1fr;
-        }
-
-        .header-container {
-            grid-area: header;
-            border-left: 1px solid var(--border-color);
-            border-right: 1px solid var(--border-color);
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            align-items: center;
-
-            @media (max-width: 768px) {
-                grid-template-columns: 1fr 64px;
-            }
-
-            .logo-container {
-                padding-left: 1rem;
-                justify-self: flex-start;
-
-                img {
-                    max-width: 10rem;
-                }
-
-                @media (max-width: 768px) {
-                    padding-left: 1rem;
-                }
-            }
-
-            nav {
-                justify-self: center;
-
-                ul {
-                    list-style: none;
-                    display: flex;
-                    gap: 1.5rem;
-
-                    li {
-                        font-weight: 600;
-
-                        a, div {
-                            color: #5d5d5d;
-
-                            &.active {
-                                color: white;
-                            }
-                        }
-                    }
-                }
-
-                @media (max-width: 768px) {
-                    display: none;
-                }
-            }
-
-            .button-container {
-                padding-right: 1rem;
-                justify-self: flex-end;
-
-                @media (max-width: 768px) {
-                    display: none;
-                }
-            }
-
-            .hamburger-container {
-                display: none;
-                height: 100%;
-                border-left: 1px solid var(--border-color);
-
-                @media (max-width: 768px) {
-                    display: grid;
-                    place-items: center;
-                }
-            }
-        }
-    }
-</style>
