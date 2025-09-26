@@ -9,7 +9,6 @@
         const path = get(page).url.pathname;
 
         const normalize = (s: string) => {
-            // remove trailing slashes; keep "/" as root
             const n = s.replace(/\/+$/, "");
             return n === "" ? "/" : n;
         };
@@ -19,7 +18,7 @@
 
         if (target === "/") return current === "/";
 
-        // Active if exact match OR inside a subtree (e.g., /case, /case/foo)
+        //active if exact match OR inside a subtree, like /tjanster
         return current === target || current.startsWith(target + "/");
     }
 
