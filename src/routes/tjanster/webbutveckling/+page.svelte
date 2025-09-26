@@ -7,7 +7,7 @@
 </script>
 
 <Header/>
-<Section style="height: calc(100vh - 4rem + 1px); padding-top: 4rem;" lines="XXXXX">
+<Section style="height: calc(100vh - 4rem + 1px); padding-top: calc(4rem + 40px);" lines="XXXXX">
     <Column span={12}>
         <h1>Webbutveckling</h1>
     </Column>

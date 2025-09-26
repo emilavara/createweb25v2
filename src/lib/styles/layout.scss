@@ -21,6 +21,22 @@ header {
     width: 100%;
     transition: transform 0.4s ease;
 
+    .breadcrumbs-container {
+        display: none;
+    }
+
+    &.has-breadcrumbs {
+        grid-template-rows: 4rem 40px;
+        grid-template-areas:
+            "gutter-1 header gutter-2"
+            "gutter-1 breadcrumbs gutter-2";
+
+        .breadcrumbs-container {
+            display: block;
+            grid-area: breadcrumbs;
+        }
+    }
+
     &.scrolled {
         transform: translateY(-4rem);
     }

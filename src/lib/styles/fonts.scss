@@ -11,6 +11,13 @@
 //bold
 @font-face {
     font-family: 'Inter Display';
+    font-weight: 500;
+    src: url('/fonts/InterDisplay-SemiBold.ttf');
+}
+
+//bold
+@font-face {
+    font-family: 'Inter Display';
     font-weight: 700;
     src: url('/fonts/InterDisplay-Bold.woff2');
 }

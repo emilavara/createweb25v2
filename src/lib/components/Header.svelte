@@ -3,6 +3,7 @@
     import { page } from "$app/stores";
     import { get } from "svelte/store";
 
+    import Breadcrumbs from '$components/Breadcrumbs.svelte'
     let header: HTMLElement;
 
     function isActive(href: string): boolean {
@@ -21,6 +22,8 @@
         //active if exact match OR inside a subtree, like /tjanster
         return current === target || current.startsWith(target + "/");
     }
+
+    const hasBreadcrumbs = isActive('/tjanster') || isActive('/case')
 
     onMount(() => {
         let prevScrollpos = 0;
@@ -41,7 +44,7 @@
     })
 </script>
 
-<header bind:this={header}>
+<header bind:this={header} class:has-breadcrumbs={hasBreadcrumbs}>
     <div class="header-container">
         <div class="logo-container">
             <img src="/images/cw_logo.svg" alt="createweb logotyp"/>
@@ -71,5 +74,8 @@
         <div class="hamburger-container">
             <div class="subheading text-accent">meny</div>
         </div>
+    </div>
+    <div class="breadcrumbs-container">
+        <Breadcrumbs></Breadcrumbs>
     </div>
 </header>

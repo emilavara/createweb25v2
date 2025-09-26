@@ -12,7 +12,8 @@
         "case": "Case",
         "tjanster": "Tjänster",
         "om-oss": "Om oss",
-        "kontakt": "Kontakt"
+        "kontakt": "Kontakt",
+        "markandsforing": "Markandsföring"
     };
 
     function getBreadcrumbs(): Crumb[] {
@@ -40,9 +41,9 @@
     {#each breadcrumbs as crumb, i}
         {#if i < breadcrumbs.length - 1}
             <a href={crumb.path} class="breadcrumb">{crumb.name}</a>
-            <span class="separator">›</span>
+            <span class="separator">/</span>
         {:else}
-            <span class="breadcrumb">{crumb.name}</span>
+            <span class="breadcrumb current">{crumb.name}</span>
         {/if}
     {/each}
 </div>
@@ -52,27 +53,36 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    font-size: 0.9rem;
-    color: #666;
+    font-weight: 500;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+    height: 100%;
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--bg-color);
+    border-bottom: 1px solid var(--border-color);
+    border-left: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
 
     .breadcrumb {
         text-decoration: none;
         color: inherit;
         transition: color 0.2s ease;
+        cursor: pointer;
 
         &:hover {
-            color: #000;
+            color: var(--bw);
         }
 
         &.current {
-            font-weight: 600;
-            color: #000;
+            color: var(--accent-color);
             pointer-events: none;
         }
     }
 
     .separator {
-        color: #aaa;
+        color: rgba(255,255,255,0.25);
         user-select: none;
     }
 }
